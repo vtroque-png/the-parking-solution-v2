@@ -40,7 +40,7 @@
           </div>
         </div>
         <aside class="quote-card">
-          <p class="quote">“The Parking Solution expands to meet the demands of our customers with an exciting partnership with Federal Parking, Inc.”</p>
+          <p class="quote">“The Parking Solution is expanding to meet the demands of our customers through a strategic partnership that strengthens our garage management, mobility, and owner-focused service capabilities.”</p>
           <div class="quote-source">
             <strong>Scott Jackson</strong>
             <span>CEO, The Parking Solution</span>
@@ -54,17 +54,17 @@
       <div class="container">
         <div class="section-heading partnership-heading">
           <p class="eyebrow dark">A Strategic South Florida Partnership</p>
-          <h2>Two experienced operators. One expanded platform for South Florida.</h2>
-          <p>The Parking Solution and Federal Parking have joined forces to bring deeper garage management, parking operations, transportation, consulting, and owner-focused service capabilities to a growing South Florida market.</p>
+          <h2>A stronger operating platform for South Florida.</h2>
+          <p>The Parking Solution has been selected by a major Mid-Atlantic parking and mobility management leader as its key partner in Florida, creating a stronger platform for garage management, parking operations, transportation, consulting, and owner-focused service across a growing South Florida market.</p>
         </div>
 
         <div class="partnership-quote-grid">
           <article class="partner-quote-card">
-            <p class="quote-label">Why Federal Parking chose TPS</p>
-            <p class="quote partner-quote">“The Parking Solution brings the local relationships, operating discipline, and South Florida market knowledge we wanted in a partner. Together, we can deliver a stronger, more responsive parking platform for owners across the region.”</p>
+            <p class="quote-label">Why a Mid-Atlantic parking leader chose TPS</p>
+            <p class="quote partner-quote">“The Parking Solution brings the local relationships, operating discipline, and South Florida market knowledge we wanted in a Florida partner. Together, we can deliver a stronger, more responsive parking platform for owners across the region.”</p>
             <div class="quote-source">
               <strong>Chief Operating Officer</strong>
-              <span>Federal Parking, Inc.</span>
+              <span>Mid-Atlantic Parking & Mobility Management Partner</span>
             </div>
           </article>
 
@@ -115,19 +115,19 @@
           <p>The Parking Solution combines local market knowledge, senior-level involvement, and expanded institutional capabilities to support owners, developers, hotels, and municipalities.</p>
         </div>
         <div class="card-grid four">
-          <article class="service-card featured">
+          <article class="service-card featured" id="garage-management" data-service="garage" tabindex="0" role="button" aria-pressed="true">
             <h3>Garage Management</h3>
             <p>Comprehensive parking garage management including revenue control, staffing, maintenance coordination, customer service programs, and owner reporting.</p>
           </article>
-          <article class="service-card">
+          <article class="service-card" id="valet-event-parking" data-service="valet" tabindex="0" role="button" aria-pressed="false">
             <h3>Valet & Event Parking</h3>
             <p>Professional valet and event parking operations for hospitality, private events, public venues, and high-volume special events.</p>
           </article>
-          <article class="service-card">
+          <article class="service-card" id="traffic-control-flagging" data-service="traffic" tabindex="0" role="button" aria-pressed="false">
             <h3>Traffic Control & Flagging</h3>
             <p>Trained on-site teams supporting garages, events, construction activity, lane control, pedestrian flow, and special traffic conditions.</p>
           </article>
-          <article class="service-card">
+          <article class="service-card" id="advisory-consulting" data-service="consulting" tabindex="0" role="button" aria-pressed="false">
             <h3>Advisory & Consulting</h3>
             <p>Operational planning, facility design input, equipment recommendations, financial performance optimization, and pro forma support.</p>
           </article>
@@ -180,23 +180,6 @@
       </div>
     </section>
 
-    <section class="section section-white">
-      <div class="container">
-        <div class="section-heading narrow">
-          <p class="eyebrow dark">Representative Experience</p>
-          <h2>Versatility across asset types and stakeholder requirements</h2>
-        </div>
-        <div class="logo-grid">
-          <span>Reunion Square</span>
-          <span>Bank of America Building</span>
-          <span>Pentagon South</span>
-          <span>Symphony Center</span>
-          <span>SEIU Headquarters</span>
-          <span>Urban Garages</span>
-        </div>
-      </div>
-    </section>
-
     <section id="about" class="section section-muted">
       <div class="container split">
         <div>
@@ -238,10 +221,10 @@
       </div>
       <div>
         <strong>Services</strong>
-        <a href="#services">Garage Management</a>
-        <a href="#services">Valet & Event Parking</a>
-        <a href="#services">Traffic Control</a>
-        <a href="#services">Consulting</a>
+        <a href="#garage-management" data-service-link="garage">Garage Management</a>
+        <a href="#valet-event-parking" data-service-link="valet">Valet & Event Parking</a>
+        <a href="#traffic-control-flagging" data-service-link="traffic">Traffic Control</a>
+        <a href="#advisory-consulting" data-service-link="consulting">Consulting</a>
       </div>
       <div>
         <strong>Markets</strong>
@@ -253,5 +236,61 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const serviceCards = Array.from(document.querySelectorAll('.service-card[data-service]'));
+      const serviceLinks = Array.from(document.querySelectorAll('[data-service-link]'));
+
+      function activateService(serviceName, shouldScroll) {
+        serviceCards.forEach(card => {
+          const isActive = card.dataset.service === serviceName;
+          card.classList.toggle('featured', isActive);
+          card.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+
+        if (shouldScroll) {
+          const activeCard = document.querySelector('.service-card[data-service="' + serviceName + '"]');
+          if (activeCard) {
+            activeCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }
+      }
+
+      serviceCards.forEach(card => {
+        card.addEventListener('click', function () {
+          activateService(card.dataset.service, false);
+        });
+
+        card.addEventListener('keydown', function (event) {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            activateService(card.dataset.service, false);
+          }
+        });
+      });
+
+      serviceLinks.forEach(link => {
+        link.addEventListener('click', function (event) {
+          event.preventDefault();
+          const serviceName = link.dataset.serviceLink;
+          activateService(serviceName, true);
+          history.replaceState(null, '', link.getAttribute('href'));
+        });
+      });
+
+      const hashMap = {
+        '#garage-management': 'garage',
+        '#valet-event-parking': 'valet',
+        '#traffic-control-flagging': 'traffic',
+        '#advisory-consulting': 'consulting'
+      };
+
+      if (hashMap[window.location.hash]) {
+        activateService(hashMap[window.location.hash], true);
+      }
+    });
+  </script>
+
 </body>
 </html>
