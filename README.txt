@@ -1,9 +1,8 @@
 The Parking Solution Website Prototype
 
 Latest update:
-- Removed Representative Experience section.
-- Added interactive Core Capabilities cards.
-- Garage Management is highlighted by default.
-- Clicking any Core Capability card moves the blue highlight to that card.
-- Footer service links scroll to and activate the matching card.
+- Used owned garage-level image for Efficient Access.
+- Used owned South Florida office/palm image for Expanded Capabilities.
+- Updated Request a Proposal form field to Company / Property / Event.
+- Retained interactive Core Capabilities behavior.
 - Ready for GitHub/Vercel deployment.
