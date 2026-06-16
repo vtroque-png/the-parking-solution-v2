@@ -1,7 +1,1 @@
-The Parking Solution Website Prototype
-
-Latest update:
-- Added Connect With Us section above footer.
-- Added phone number, email, Facebook link, and LinkedIn stub.
-- Added contact/social links in footer.
-- Ready for GitHub/Vercel deployment.
+Latest TPS site: valet-first ordering, updated Traffic Control terminology, updated About copy, copyright/legal pages.
