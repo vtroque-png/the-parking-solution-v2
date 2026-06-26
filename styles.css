@@ -388,3 +388,42 @@ p { line-height: 1.65; color: inherit; }
 .legal-content p{color:var(--muted);font-size:17px}
 .legal-content a{color:var(--blue);font-weight:800}
 @media (max-width:640px){.footer-bottom{flex-direction:column;align-items:flex-start}.footer-bottom div{flex-direction:column;gap:8px}.legal-content{padding:28px}}
+
+
+
+/* v1.1 structure refinements */
+.about-page {
+  background: #e9eff3;
+}
+.combined-contact-section {
+  padding: 100px 0;
+}
+.combined-contact-card {
+  align-items: stretch;
+}
+.contact-methods {
+  display: grid;
+  gap: 14px;
+  margin-top: 30px;
+}
+.contact-methods a,
+.contact-methods div {
+  display: grid;
+  gap: 4px;
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+}
+.contact-methods span {
+  color: rgba(255,255,255,.62);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-weight: 800;
+  font-size: 11px;
+}
+.contact-methods strong,
+.contact-methods strong a {
+  color: #fff;
+  font-size: 18px;
+}
