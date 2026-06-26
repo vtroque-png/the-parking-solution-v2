@@ -1,12 +1,9 @@
-The Parking Solution Website Prototype v1.1
+The Parking Solution Website Prototype v1.2
 
 Updates:
-- Hero section left unchanged.
-- About The Parking Solution moved to page #2 and trimmed.
-- TPS stats bar moved directly under About section.
-- Strategic South Florida Partnership moved to page #3.
-- Federal Parking partnership reintroduced in Strategic Partnership page.
-- Federal Parking quote attributed to President, Federal Parking, Inc.
-- Removed lower Expanded Capabilities section.
-- Combined Request a Proposal and Connect With Us into one section.
-- Existing legal pages retained.
+- Restored Connect With Us elements inside the Request Proposal section.
+- Updated Trusted Operations image to use the owned South Florida office/palm image.
+- Updated Federal Parking President quote to mention proprietary modern parking technology capabilities.
+- Added language that Federal Parking actively operates and manages more than 15,000 parking spaces in the Mid-Atlantic.
+- Added Modern Parking Technology to combined capabilities.
+- Existing v1.1 flow retained.
